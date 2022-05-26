@@ -120,3 +120,15 @@ ZID
 ```shell
 >>> quit()
 ```
+Обратиться через related_name
+```shell
+>>> from toyshop.models import Toy, Manufacturer
+>>> Manufacturer(name = 'AliBaba', address = 'China Town 9 Street')
+<Manufacturer: AliBaba>
+>>> m1 = _
+>>> m1.save()
+>>> t1 = Toy.objects.create(name = 'Bear', material = 'Silk', manufacturer = m1)
+>>> m = Manufacturer.objects.get(id=7)
+>>> t = m.toys.first()
+>>> print(t)
+Bear
