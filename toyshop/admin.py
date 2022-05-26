@@ -4,16 +4,24 @@ from .models import Toy, Manufacturer
 
 # Register your models here.
 
+
+class ToyInline(admin.StackedInline):
+    model = Toy
+    
+    
 @admin.register(Manufacturer)
 class ManufacturerAdmin(admin.ModelAdmin):
     list_display = ('name','address')
-
-
-class ManufacturerInline(admin.TabularInline):
-    model = Manufacturer
+    inlines: [ToyInline]
 
 
 @admin.register(Toy)
 class ToyAdmin(admin.ModelAdmin):
     list_display = ('name','material','manufacturer')
-    inlines: [ManufacturerInline]
+
+
+#admin.site.register(Toy)
+#admin.site.register(Manufacturer)
+
+
+
