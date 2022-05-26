@@ -8,11 +8,11 @@ from .models import Toy, Manufacturer
 class ToyInline(admin.StackedInline):
     model = Toy
     
-    
+
 @admin.register(Manufacturer)
 class ManufacturerAdmin(admin.ModelAdmin):
     list_display = ('name','address')
-    inlines: [ToyInline]
+    inlines = [ToyInline]
 
 
 @admin.register(Toy)
