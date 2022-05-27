@@ -1,9 +1,12 @@
 # type: ignore
-from importlib.resources import path
 from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
-    path('', views.ToysView.as_view()),    
-    re_path(r'^main_menu', views.main_menu),
+    path("manufacturers/", views.ManufacturerListView.as_view()),
+    path("manufacturers/<int:pk>/", views.ManufacturerDetailView.as_view()),
+    path("toys/", views.ToyListView.as_view()),
+    path("toys/<int:pk>/", views.ToyDetailView.as_view()),
+    path("add_manufacturer/", views.ManufacturerCreateView.as_view()),
+    path("add_toy/", views.ToyCreateView.as_view()),
 ]
