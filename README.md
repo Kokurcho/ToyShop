@@ -1,8 +1,8 @@
 # Run venv + start server
 ```console
 cd C:\virtualenv
-python -m venv kokurcho
-kokurcho\Scripts\activate.bat
+python -m venv venv
+venv\Scripts\activate.bat
 cd C:\django\toy_shop
 python manage.py runserver
 ```
